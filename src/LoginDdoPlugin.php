@@ -2,11 +2,11 @@
 
 namespace Javarex\DdoLogin;
 
-use Filament\Actions\Action;
 use Filament\Panel;
+use Filament\Actions\Action;
 use Filament\Contracts\Plugin;
-use Javarex\Login\Pages\Login;
-use Javarex\Profile\Pages\Edit;
+use Javarex\DdoLogin\Pages\Edit;
+use Javarex\DdoLogin\Pages\Login;
 
 class LoginDdoPlugin implements Plugin
 {

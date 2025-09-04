@@ -1,6 +1,6 @@
 <?php
 
-namespace Javarex\Profile\Pages;
+namespace Javarex\DdoLogin\Pages;
 
 use Filament\Schemas\Schema;
 use Filament\Auth\Pages\EditProfile;
