@@ -27,6 +27,14 @@ class LoginDdoServiceProvider extends ServiceProvider
         FilamentAsset::register([
             Css::make('ddo-login-styles', __DIR__ . '/../../resources/dist/plugin.css'),
         ], 'javarex/ddo-login');
+        $this->publishes([
+            __DIR__ . '/../../resources/dist/plugin.css' => public_path('css/javarex/ddo-login/ddo-login-styles.css'),
+        ], 'ddo-login-assets');
+        \Filament\Facades\Filament::serving(function () {
+            \Filament\Facades\Filament::registerStyles([
+                asset('css/javarex/ddo-login/ddo-login-styles.css'),
+            ]);
+        });
 
 
     }

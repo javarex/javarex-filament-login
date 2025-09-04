@@ -54,7 +54,7 @@
                     <div class="basis-full sm:basis-1/2 flex-col sm:flex items-center justify-center gap-y-5">
                       
                        <div 
-                            style="background-image: url('images/logo.png');"
+                            style="background-image: url('../images/logo.png');"
                             class="bg-no-repeat bg-contain bg-center w-32 h-32"
                         ></div>
 
