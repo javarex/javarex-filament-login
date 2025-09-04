@@ -2,7 +2,9 @@
 
 namespace Javarex\DdoLogin\Providers;
 
+use Filament\Support\Assets\Css;
 use Illuminate\Support\ServiceProvider;
+use Filament\Support\Facades\FilamentAsset;
 
 class LoginDdoServiceProvider extends ServiceProvider
 {
@@ -22,6 +24,10 @@ class LoginDdoServiceProvider extends ServiceProvider
                 __DIR__ . '/../../config/ddo-login.php' => config_path('ddo-login.php'),
             ], 'ddo-login-config');
         }
+        FilamentAsset::register([
+            Css::make('ddo-login-styles', __DIR__ . '/../../resources/dist/plugin.css'),
+        ], 'javarex/ddo-login');
+
 
     }
 }

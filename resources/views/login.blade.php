@@ -35,9 +35,7 @@
             </div>
         @endif
 
-        {{-- <div class="fi-simple-main-ctn bg-radial-[at_50%_75%] from-[#fdfae8] via-[#fef9c3] to-sepia_brown to-95%"> --}}
         <div class="fi-simple-main-ctn bg-radial from-[#fdfae8] from-40% to-[#fef9c3]">
-        {{-- <div class="fi-simple-main-ctn bg-radial from-[#fef9c3] from-40% to-[#fdfae8]"> --}}
             <main
                 @class([
                     'fi-simple-main',
@@ -52,14 +50,11 @@
                     ($maxContentWidth instanceof Width) ? "fi-width-{$maxContentWidth->value}" : $maxContentWidth,
                 ])
             >
-                {{-- <div class="flex gap-x-2 bg-linear-to-r/srgb from-[#edca25] to-[#452b02] rounded-2xl inset-ring-2 inset-ring-gold/50 "> --}}
                 <div class="flex gap-x-2 bg-linear-to-t/srgb from-[#452b02] to-[#edca25] rounded-2xl shadow-2xl">
                     <div class="basis-full sm:basis-1/2 hidden flex-col sm:flex items-center justify-center gap-y-5">
-                        {{-- <img src="{{asset('images/logo.png')}}" alt=""> --}}
-                       {{-- <div class="bg-[url('{{asset('images/logo.png')}}')] bg-no-repeat bg-contain bg-center w-32 h-32"></div> --}}
-                       {{-- <div class="bg-[url('/images/logo.png')] bg-no-repeat bg-contain bg-center w-32 h-32"></div> --}}
+                      
                        <div 
-                            style="background-image: url('{{ asset('images/logo.png') }}');"
+                            style="background-image: url('images/logo.png');"
                             class="bg-no-repeat bg-contain bg-center w-32 h-32"
                         ></div>
 
