@@ -1,6 +1,6 @@
 export default {
   content: [
-    './resources/views/**/*.blade.php',
+    './resources/views/*.blade.php',
     './src/**/*.php',
   ],
   theme: {
