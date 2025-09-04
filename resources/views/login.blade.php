@@ -51,7 +51,7 @@
                 ])
             >
                 <div class="flex gap-x-2 bg-linear-to-t/srgb from-[#452b02] to-[#edca25] rounded-2xl shadow-2xl">
-                    <div class="basis-full sm:basis-1/2 hidden flex-col sm:flex items-center justify-center gap-y-5">
+                    <div class="basis-full sm:basis-1/2 flex-col sm:flex items-center justify-center gap-y-5">
                       
                        <div 
                             style="background-image: url('images/logo.png');"
