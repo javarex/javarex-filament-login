@@ -60,7 +60,7 @@
 
 
                        <div class="uppercase text-sepia_brown font-bold text-2xl text-white">
-                        Maduolan Online System
+                        {{ config('app.name') ?? 'System Name'}}
                        </div>
                     </div>
                     <div class="basis-full sm:basis-1/2 py-10 px-10 bg-[#fdfcea] rounded-r-2xl">
