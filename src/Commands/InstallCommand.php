@@ -19,7 +19,7 @@ class InstallCommand extends Command
             '--force' => true,
         ]);
 
-        if (File::isDirectory(public_path('images'))) {
+        if (! File::isDirectory(public_path('images'))) {
             File::makeDirectory(public_path('images'));
             File::copy(
                 __DIR__ . '/../../resources/images/login-logo.png',
