@@ -3,7 +3,6 @@
 namespace Javarex\DdoLogin\Providers;
 
 use Filament\Support\Assets\Css;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\ServiceProvider;
 use Filament\Support\Facades\FilamentAsset;
 
@@ -19,9 +18,6 @@ class LoginDdoServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        if (File::isDirectory(public_path('images'))) {
-            File::makeDirectory(public_path('images'));
-        }
         $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'ddo-login');
         if ($this->app->runningInConsole()) {
             $this->commands([
