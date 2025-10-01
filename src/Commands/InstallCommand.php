@@ -2,6 +2,7 @@
 
 namespace Javarex\DdoLogin\Commands;
 
+use Illuminate\Support\Facades\File;
 use Illuminate\Console\Command;
 
 class InstallCommand extends Command
@@ -39,6 +40,27 @@ class InstallCommand extends Command
                 '--tag' => 'ddo-login-views',
                 '--force' => true,
             ]);
+        }
+
+        $providerPath = app_path('Providers/Filament/AdminPanelProvider.php');
+
+        if (File::exists($providerPath)) {
+            $contents = File::get($providerPath);
+
+            if (! str_contains($contents, "LoginDdoPlugin::make()")) {
+                $updated = str_replace(
+                    "->plugins([",
+                    "->plugins([\n                \\Javarex\\DdoLogin\\LoginDdoPlugin::make(),",
+                    $contents
+                );
+
+                File::put($providerPath, $updated);
+                $this->info('✅ LoginDdoPlugin added to AdminPanelProvider.');
+            } else {
+                $this->warn('⚠️ LoginDdoPlugin already exists in AdminPanelProvider.');
+            }
+        } else {
+            $this->error('❌ AdminPanelProvider not found.');
         }
 
         $this->info('✅ DDO Login installation complete!');

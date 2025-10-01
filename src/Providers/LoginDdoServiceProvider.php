@@ -22,6 +22,8 @@ class LoginDdoServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands([
                 \Javarex\DdoLogin\Commands\InstallCommand::class,
+                \Javarex\DdoLogin\Commands\HelpCommand::class,
+                \Javarex\DdoLogin\Commands\PublishCommand::class,
             ]);
 
             $this->publishes([
@@ -39,6 +41,14 @@ class LoginDdoServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__ . '/../Pages/Login.php' => app_path('Filament/Pages/DdoLogin/Login.php'),
             ], 'ddo-login');
+
+            $this->publishes([
+                __DIR__ . '/../../database/migrations/2025_09_30_00000_add_username_to_users_table.php' => database_path('migrations/2025_09_30_00000_add_username_to_users_table.php'),
+            ], 'migration');
+
+            $this->publishes([
+                __DIR__ . '/../../resources/views' => resource_path('views/vendor/ddo-login'),
+            ], 'ddo-login-views');
         }
 
         FilamentAsset::register([
