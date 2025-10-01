@@ -19,6 +19,11 @@ class InstallCommand extends Command
             '--force' => true,
         ]);
 
+        File::copy(
+            __DIR__ . '/../../resources/images/login-logo.png',
+            public_path('images/login-logo.png')
+        );
+
         if ($this->confirm('Do you want to publish the config file?', true)) {
             $this->call('vendor:publish', [
                 '--tag' => 'ddo-login-config',

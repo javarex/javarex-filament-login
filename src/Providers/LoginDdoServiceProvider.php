@@ -49,6 +49,10 @@ class LoginDdoServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__ . '/../../resources/views' => resource_path('views/vendor/ddo-login'),
             ], 'ddo-login-views');
+
+            // $this->publishes([
+            //     __DIR__ . '/../../resources/images/login-logo.png' => public_path('images'),
+            // ], 'ddo-login-logo');
         }
 
         FilamentAsset::register([
