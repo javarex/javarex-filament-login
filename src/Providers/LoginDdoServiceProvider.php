@@ -20,6 +20,10 @@ class LoginDdoServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'ddo-login');
         if ($this->app->runningInConsole()) {
+            $this->commands([
+                \Javarex\DdoLogin\Commands\InstallCommand::class,
+            ]);
+
             $this->publishes([
                 __DIR__ . '/../../config/ddo-login.php' => config_path('ddo-login.php'),
             ], 'ddo-login-config');
