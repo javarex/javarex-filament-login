@@ -14,6 +14,11 @@ class InstallCommand extends Command
     {
         $this->info('🚀 Installing DDO Login Plugin...');
 
+        $this->call('vendor:publish', [
+            '--tag' => 'migration',
+            '--force' => true,
+        ]);
+
         if ($this->confirm('Do you want to publish the config file?', true)) {
             $this->call('vendor:publish', [
                 '--tag' => 'ddo-login-config',
@@ -41,6 +46,7 @@ class InstallCommand extends Command
                 '--force' => true,
             ]);
         }
+
 
         $providerPath = app_path('Providers/Filament/AdminPanelProvider.php');
 
