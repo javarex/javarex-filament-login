@@ -22,46 +22,23 @@ class PublishCommand extends Command
                 'Login Page',
                 'Edit Account Page',
             ],
+            0 // 👈 default is "All"
         );
 
         match ($choice) {
-            '0' => function() {
-                $this->call('vendor:publish', [
-                    '--tag' => 'ddo-login-config',
-                    '--force' => true,
-                ]);
-                $this->call('vendor:publish', [
-                    '--tag' => 'ddo-login-views',
-                    '--force' => true,
-                ]);
-                $this->call('vendor:publish', [
-                    '--tag' => 'ddo-login',
-                    '--force' => true,
-                ]);
-                $this->call('vendor:publish', [
-                    '--tag' => 'ddo-login-edit',
-                    '--force' => true,
-                ]);
+            'All' => function () {
+                $this->call('vendor:publish', ['--tag' => 'ddo-login-config', '--force' => true]);
+                $this->call('vendor:publish', ['--tag' => 'ddo-login-views', '--force' => true]);
+                $this->call('vendor:publish', ['--tag' => 'ddo-login', '--force' => true]);
+                $this->call('vendor:publish', ['--tag' => 'ddo-login-edit', '--force' => true]);
             },
-
-            '1' => $this->call('vendor:publish', [
-                    '--tag' => 'ddo-login-config',
-                    '--force' => true,
-                ]),
-            '2' =>  $this->call('vendor:publish', [
-                    '--tag' => 'ddo-login-views',
-                    '--force' => true,
-            ]),
-            '3' => $this->call('vendor:publish', [
-                '--tag' => 'ddo-login',
-                '--force' => true,
-            ]),
-            '4' => $this->call('vendor:publish', [
-                '--tag' => 'ddo-login-edit',
-                '--force' => true,
-            ]),
+            'Config' =>  $this->call('vendor:publish', ['--tag' => 'ddo-login-config', '--force' => true]),
+            'Views' =>  $this->call('vendor:publish', ['--tag' => 'ddo-login-views', '--force' => true]),
+            'Login Page' =>  $this->call('vendor:publish', ['--tag' => 'ddo-login', '--force' => true]),
+            'Edit Account Page' => $this->call('vendor:publish', ['--tag' => 'ddo-login-edit', '--force' => true]),
+            default =>  $this->warn("❌ Unknown choice: $choice"),
         };
-        
+
         return self::SUCCESS;
     }
 }
