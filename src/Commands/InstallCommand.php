@@ -18,7 +18,7 @@ class InstallCommand extends Command
         $this->info('🚀 Installing DDO Login Plugin...');
 
          // Optional theme.css modification
-        if ($this->option('theme-css')) {
+        if ($this->option('theme')) {
             $this->updateThemeCss();
         } else {
             $this->warn('⚠️ Skipping theme.css modification. Use --theme-css to add it.');
