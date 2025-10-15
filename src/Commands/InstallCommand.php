@@ -9,7 +9,7 @@ class InstallCommand extends Command
 {
     // protected $signature = 'ddo-login:install';
     protected $signature = 'ddo-login:install {
-        --theme-css : Update the Filament theme.css file to include plugin styles and sources
+        --theme : Update the Filament theme.css file to include plugin styles and sources
     }';
     protected $description = 'Install the DDO Login plugin with optional publish steps';
 
@@ -119,8 +119,8 @@ class InstallCommand extends Command
         $content = File::get($themeCss);
 
         // Lines to add
-        $importLine = "@import '../../../../vendor/ddo-login/resources/css/plugin.css';";
-        $sourceLine = "@source '../../../../vendor/ddo-login/resources/views/**/*';";
+        $importLine = "@import '../../../../vendor/javarex/ddo-login/resources/css/plugin.css';";
+        $sourceLine = "@source '../../../../vendor/javarex/ddo-login/resources/views/**/*';";
 
         $updated = $content;
 
