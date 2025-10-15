@@ -54,17 +54,18 @@ class Login extends PagesLogin
                             'class' => 'dark:text-gray-900',
                             'tabindex' => 1
                         ])
-                        ->label(fn(	$component) => new HtmlString('<span class="dark:text-gray-800">'.ucwords($component->getName()).'</span>')),
+                        // ->label(fn(	$component) => new HtmlString('<span class="dark:text-gray-800">'.ucwords($component->getName()).'</span>'))
+                        ,
                 $this->getPasswordFormComponent()
                     ->extraInputAttributes([
                         'class' => 'dark:text-gray-900'
-                    ])
-                    ->label(fn(	$component) => new HtmlString('<span class="dark:text-gray-800">'.ucwords($component->getName()).'</span>')),
+                    ]),
+                    // ->label(fn(	$component) => new HtmlString('<span class="dark:text-gray-800">'.ucwords($component->getName()).'</span>')),
                 $this->getRememberFormComponent()
                     ->extraInputAttributes([
                         'class' => 'dark:text-gray-900'
                     ])
-                    ->label(fn(	$component) => new HtmlString('<span class="dark:text-gray-800">'.ucwords($component->getName()).'</span>')),
+                    // ->label(fn(	$component) => new HtmlString('<span class="dark:text-gray-800">'.ucwords($component->getName()).'</span>')),
             ]);
     }
 

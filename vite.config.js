@@ -6,11 +6,14 @@ export default defineConfig({
     outDir: 'resources/dist',
     emptyOutDir: true,
     rollupOptions: {
-      input: {
-        app: path.resolve(__dirname, 'resources/css/plugin.css'),
-      },
+      input: path.resolve(__dirname, 'resources/js/plugin.js'),
+      // input: {
+      //   app: path.resolve(__dirname, 'resources/css/plugin.css'),
+      // },
       output: {
-        assetFileNames: `plugin.css`
+        // assetFileNames: `plugin.css`
+        entryFileNames: `plugin.js`,
+        assetFileNames: `plugin.css`,
       }
     }
   }

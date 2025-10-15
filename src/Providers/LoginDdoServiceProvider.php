@@ -54,7 +54,7 @@ class LoginDdoServiceProvider extends ServiceProvider
             //     __DIR__ . '/../../resources/images/login-logo.png' => public_path('images'),
             // ], 'ddo-login-logo');
         }
-
+        
         FilamentAsset::register([
             Css::make('ddo-login-styles', __DIR__ . '/../../resources/dist/plugin.css'),
         ], 'javarex/ddo-login');
