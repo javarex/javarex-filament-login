@@ -35,7 +35,7 @@
             </div>
         @endif
 
-        <div class="fi-simple-main-ctn bg-radial from-[#fdfae8] from-40% to-[#fef9c3]">
+        <div class="fi-simple-main-ctn login-background">
             <main
                 @class([
                     'fi-simple-main',
@@ -51,21 +51,28 @@
                 ])
                 id="ddo-login"
             >
-                <div class="flex gap-x-2 bg-linear-to-t/srgb from-[#452b02] to-[#edca25] rounded-2xl shadow-2xl">
-                    <div class="basis-full sm:basis-1/2 flex-col sm:flex items-center justify-center gap-y-5">
-                      
-                       <div 
-                            style="background-image: url('../images/login-logo.png');"
-                            class="bg-no-repeat bg-contain bg-center w-32 h-32"
-                        ></div>
-
-
-                       <div class="uppercase text-sepia_brown font-bold text-2xl text-white">
-                        {{ config('app.name') ?? 'System Name'}}
-                       </div>
+                <div class="login-card">
+                    <div class="login-brand-panel">
+                        <div class="login-brand-content">
+                            <div class="login-logo-glow"></div>
+                            <div
+                                style="background-image: url('../images/e-medical-logo.png');"
+                                class="login-logo"
+                            ></div>
+                            <div class="login-app-name">
+                                {{ config('app.name') ?? 'System Name'}}
+                            </div>
+                            <div class="login-tagline">
+                                {{ $tagline }}
+                            </div>
+                        </div>
+                        <div class="login-brand-decoration"></div>
                     </div>
-                    <div class="basis-full sm:basis-1/2 py-10 px-10 bg-[#fdfcea] rounded-r-2xl">
-                        <div class="text-2xl text-gray-500">Login</div>
+                    <div class="login-form-panel">
+                        <div class="login-form-header">
+                            <div class="login-welcome">Welcome back</div>
+                            <div class="login-subtitle">Sign in to continue to your account</div>
+                        </div>
                         {{$slot}}
                     </div>
                 </div>

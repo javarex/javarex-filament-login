@@ -12,6 +12,7 @@ class LoginDdoPlugin implements Plugin
 {
 
     protected bool $useUsername = false;
+    protected string | null $tagline = null;
     
     public function getId(): string
     {
@@ -30,11 +31,19 @@ class LoginDdoPlugin implements Plugin
         return $this;
     }
 
+    public function tagline(string | null $value = null): static
+    {
+        $this->tagline = $value;
+
+        return $this;
+    }
+
     public function register(Panel $panel): void
     {
-        
+
         Login::$useUsername = config('ddo-login.use_username_login');
         Login::$login_type = config('ddo-login.use_username_login') ? 'username' : 'email';
+        Login::$tagline = $this->tagline ?? config('ddo-login.tagline');
 
         $panel
             // ->pages([

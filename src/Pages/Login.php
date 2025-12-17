@@ -18,6 +18,7 @@ use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 
 class Login extends PagesLogin
 {
+    public static ?string $tagline = null;
     // protected string $layout = 'filament.pages.auth.login';
     // protected static string $layout = 'ddo-login::auth.login';
     protected static string $layout = 'ddo-login::login';
@@ -34,6 +35,13 @@ class Login extends PagesLogin
     public function hasLogo(): bool
     {
         return false;
+    }
+
+    protected function getLayoutData(): array
+    {
+        return array_merge(parent::getLayoutData(), [
+            'tagline' => static::$tagline ?? config('ddo-login.tagline', 'Online Service Request Portal'),
+        ]);
     }
 
     public function getHeading(): string | Htmlable
