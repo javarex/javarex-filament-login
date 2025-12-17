@@ -56,7 +56,7 @@
                         <div class="login-brand-content">
                             <div class="login-logo-glow"></div>
                             <div
-                                style="background-image: url('../images/e-medical-logo.png');"
+                                style="background-image: url('../images/login-logo.png');"
                                 class="login-logo"
                             ></div>
                             <div class="login-app-name">

@@ -77,6 +77,16 @@ class Login extends PagesLogin
             ]);
     }
 
+    protected function getFormActions(): array
+    {
+        return [
+            $this->getAuthenticateFormAction()
+                ->extraAttributes([
+                    'id' => 'login-button'
+                ]),
+        ];
+    }
+
     protected function getUserNameFormComponent(): TextInput
     {
         return TextInput::make('username')
