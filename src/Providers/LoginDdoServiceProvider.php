@@ -24,6 +24,7 @@ class LoginDdoServiceProvider extends ServiceProvider
                 \Javarex\DdoLogin\Commands\InstallCommand::class,
                 \Javarex\DdoLogin\Commands\HelpCommand::class,
                 \Javarex\DdoLogin\Commands\PublishCommand::class,
+                \Javarex\DdoLogin\Commands\MakeUserCommand::class,
             ]);
 
             $this->publishes([
