@@ -295,26 +295,6 @@
     @apply mb-5;
 }
 
-/* Registration link styling */
-.login-register-link {
-    @apply mt-6 text-center text-sm text-gray-600;
-}
-
-.login-register-link span {
-    @apply mr-1;
-}
-
-.login-register-anchor {
-    color: var(--login-primary-darker) !important;
-    @apply font-semibold;
-    transition: all 0.2s ease;
-}
-
-.login-register-anchor:hover {
-    color: var(--login-primary-darkest) !important;
-    text-decoration: underline;
-}
-
 /* Hide Filament's default heading since we have custom one */
 .login-form-panel .fi-simple-header {
     @apply hidden;
@@ -431,20 +411,6 @@
 /* Validation error - Dark */
 .dark .login-form-panel .fi-fo-field-wrp-error-message {
     @apply !text-red-400;
-}
-
-/* Registration link - Dark */
-.dark .login-register-link {
-    @apply text-slate-400;
-}
-
-.dark .login-register-anchor {
-    color: var(--login-primary) !important;
-}
-
-.dark .login-register-anchor:hover {
-    color: var(--login-primary-light) !important;
-    text-shadow: 0 0 10px rgba(250, 204, 21, 0.5);
 }
 
 

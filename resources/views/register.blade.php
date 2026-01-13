@@ -69,15 +69,9 @@
                         <div class="login-brand-decoration"></div>
                     </div>
                     <div class="login-form-panel">
-                        <div class="login-form-header">
-                            <div class="login-welcome">Create Account</div>
-                            <div class="login-subtitle">Sign up to get started</div>
-                        </div>
+                        
                         {{$slot}}
-                        <div class="login-register-link">
-                            <span>Already have an account?</span>
-                            <a href="{{ filament()->getLoginUrl() }}" class="login-register-anchor">Sign in</a>
-                        </div>
+                        
                     </div>
                 </div>
             </main>

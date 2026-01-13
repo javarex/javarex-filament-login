@@ -12,12 +12,15 @@ use Filament\Auth\Pages\Register as PagesRegister;
 use Filament\Schemas\Components\Component;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
+use Illuminate\Contracts\View\View;
 
 class Register extends PagesRegister
 {
     public static ?string $tagline = null;
 
-    protected static string $layout = 'ddo-login::register';
+    // protected static string $layout = 'ddo-login::register';
+
+    // protected string $view = 'ddo-login::register';
 
     public static bool $useUsername = false;
 
