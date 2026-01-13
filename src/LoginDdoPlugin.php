@@ -7,12 +7,14 @@ use Filament\Actions\Action;
 use Filament\Contracts\Plugin;
 use Javarex\DdoLogin\Pages\Edit;
 use Javarex\DdoLogin\Pages\Login;
+use Javarex\DdoLogin\Pages\Register;
 
 class LoginDdoPlugin implements Plugin
 {
 
     protected bool $useUsername = false;
     protected string | null $tagline = null;
+    protected bool $registration = false;
     
     public function getId(): string
     {
@@ -38,17 +40,24 @@ class LoginDdoPlugin implements Plugin
         return $this;
     }
 
+    public function registration(bool $value = true): static
+    {
+        $this->registration = $value;
+
+        return $this;
+    }
+
     public function register(Panel $panel): void
     {
+        $useUsername = config('ddo-login.use_username_login');
+        $registrationEnabled = $this->registration || config('ddo-login.registration', false);
 
-        Login::$useUsername = config('ddo-login.use_username_login');
-        Login::$login_type = config('ddo-login.use_username_login') ? 'username' : 'email';
+        Login::$useUsername = $useUsername;
+        Login::$login_type = $useUsername ? 'username' : 'email';
         Login::$tagline = $this->tagline ?? config('ddo-login.tagline');
+        Login::$registrationEnabled = $registrationEnabled;
 
         $panel
-            // ->pages([
-            //     Login::class,
-            // ])
             ->login(Login::class)
             ->profile(Edit::class)
             ->userMenuItems([
@@ -56,6 +65,12 @@ class LoginDdoPlugin implements Plugin
                 'edit-profile' => fn(Action $action) => $action->make('edit-profile')->url(fn (): string => Edit::getUrl())->label('Edit Account')->icon('heroicon-o-pencil-square'),
                 'logout' => fn(Action $action) => $action->label('Log out')
             ]);
+
+        if ($registrationEnabled) {
+            Register::$useUsername = $useUsername;
+            Register::$tagline = $this->tagline ?? config('ddo-login.tagline');
+            $panel->registration(Register::class);
+        }
     }
 
     public function boot(Panel $panel): void

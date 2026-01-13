@@ -70,16 +70,14 @@
                     </div>
                     <div class="login-form-panel">
                         <div class="login-form-header">
-                            <div class="login-welcome">Welcome back</div>
-                            <div class="login-subtitle">Sign in to continue to your account</div>
+                            <div class="login-welcome">Create Account</div>
+                            <div class="login-subtitle">Sign up to get started</div>
                         </div>
                         {{$slot}}
-                        @if ($registrationEnabled ?? false)
-                            <div class="login-register-link">
-                                <span>Don't have an account?</span>
-                                <a href="{{ filament()->getRegistrationUrl() }}" class="login-register-anchor">Sign up</a>
-                            </div>
-                        @endif
+                        <div class="login-register-link">
+                            <span>Already have an account?</span>
+                            <a href="{{ filament()->getLoginUrl() }}" class="login-register-anchor">Sign in</a>
+                        </div>
                     </div>
                 </div>
             </main>

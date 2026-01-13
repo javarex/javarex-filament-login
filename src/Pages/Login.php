@@ -24,8 +24,10 @@ class Login extends PagesLogin
     protected static string $layout = 'ddo-login::login';
 
     public static bool $useUsername = false;
-    
+
     public static string $login_type;
+
+    public static bool $registrationEnabled = false;
 
     public function getMaxContentWidth(): Width | string | null
     {
@@ -41,6 +43,7 @@ class Login extends PagesLogin
     {
         return array_merge(parent::getLayoutData(), [
             'tagline' => static::$tagline ?? config('ddo-login.tagline', 'Online Service Request Portal'),
+            'registrationEnabled' => static::$registrationEnabled,
         ]);
     }
 
